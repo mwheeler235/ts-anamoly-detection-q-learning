@@ -22,4 +22,4 @@ When comparing models, the outlier rate, as mentioned, is very similar. However,
 * Correctly scoring the Isolation Model on the Evaluation Set using the rule: outliers = np.sum(np.abs(feature_values - mean) > 3 * std)
 * Further tuning to both models to attempt some level of convergence of outliers identified
 
-<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/model_anomaly_summary.png" width=50% height=50%>
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/model_anomaly_summary1.png" width=50% height=50%>
