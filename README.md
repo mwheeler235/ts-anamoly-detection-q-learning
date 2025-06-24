@@ -6,7 +6,7 @@ First, let's use reinforcement learnging, namely Q-learning from OpenAI Gym to d
 
 Next, we can compare the Q-Learning results to the results from an Isolation Forest. We can define several features for this model as shown below:
 
-<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/isolation_forest_features.png" width=10% height=10%>
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/isolation_forest_features.png" width=25% height=25%>
 
 Next, we can estimate the contamination by using 3 standard deviations from the mean for each feature. The estimated contamination rate is very similar at 0.47% (57 out of 9,604 observations)!
 
