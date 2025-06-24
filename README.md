@@ -10,7 +10,7 @@ Next, we can compare the Q-Learning results to the results from an Isolation For
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/isolation_forest_features.png" width=25% height=25%>
 
-Next, we can estimate the contamination by using 3 standard deviations from the mean for each feature, then averaging the number of outliers over total oberservations across all metrics. The estimated contamination rate is very similar at 0.58% (56 out of 9,716 observations)!
+Next, we can estimate the contamination by using 3 standard deviations from the mean for each feature, then averaging the number of outliers over total oberservations across all metrics. The estimated contamination rate is very similar at 0.55% (53 out of 9,716 observations)!
 
 After training the Isolation Forest model using this estimated outlier rate, the result is shown below:
 
