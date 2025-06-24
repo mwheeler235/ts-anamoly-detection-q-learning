@@ -1,21 +1,23 @@
-Our data source is solar panel production from a major solar facilities in Canada. We want to unerstand how to classify outliers in solar production data. The data is collected hourly across several years from 2015 through April 2023. For our analysis, we will subset to data starting in 2021 and for the largest facility.
+Our data source is solar panel production from major solar facilities in Canada. We want to understand how to classify outliers within this solar production data. The data is collected hourly across several years from 2015 through April 2023. For our analysis, we will reduce the scope to data starting in 2021 and for only the largest facility. A time-series view of this facility's solar kWh production is shown below.
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/bearspaw_ts.png" width=100% height=100%>
 
-First, let's use reinforcement learning, namely Q-learning from OpenAI Gym to diagnose for time series anomaly detection. Using conservative values for the Hyperparameters to reduce the number of diagnosed outliers yields a contamination rate of 0.52% (50 out of 9,604 observations). 
+First, let's use reinforcement learning, namely Q-learning from OpenAI Gym, to diagnose time series anomalies. Using conservative values for the Hyperparameters to reduce the number of diagnosed outliers yields a contamination (or, outlier) rate of 0.52% (50 out of 9,604 observations). 
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/anomaly_ts_q_learning.png" width=100% height=100%>
 
-Next, we can compare the Q-Learning results to the results from an Isolation Forest. We can define several features for this model as shown below:
+Next, we can compare the Q-Learning results to the results from an Isolation Forest model. We can define several features for this model considering a window of 12 hours. These metrics are shown below:
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/isolation_forest_features.png" width=25% height=25%>
 
-Next, we can estimate the contamination by using 3 standard deviations from the mean for each feature. The estimated contamination rate is very similar at 0.47% (57 out of 9,604 observations)!
+Next, we can estimate the contamination by using 3 standard deviations from the mean for each feature, then averaging the number of outliers over total oberservations across all metrics. The estimated contamination rate is very similar at 0.47% (57 out of 9,604 observations)!
 
 After training the Isolation Forest model using this estimated outlier rate, the result is shown below:
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/anomaly_ts_isolation_forest.png" width=100% height=100%>
 
-When comparing models, the outlier rate, as mentioned, is very similar. However, none of the outliers overlap between models. This warrants model tuning and EDA so stay tuned for more!
+When comparing models, the outlier rate, as mentioned, is very similar. However, none of the outliers overlap between models. This warrants 
+* More model tuning
+* EDA to understand the types of outliers that are being flagged for each model
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/model_anomaly_summary.png" width=50% height=50%>
