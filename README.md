@@ -1,6 +1,8 @@
 Our data source is solar panel production from a major solar facilities in Canada. We want to unerstand how to classify outliers in solar production data. The data is collected hourly across several years from 2015 through April 2023. For our analysis, we will subset to data starting in 2021 and for the largest facility.
 
-First, let's use reinforcement learnging, namely Q-learning from OpenAI Gym to diagnose for time series anomaly detection. Using conservative values for the Hyperparameters to reduce the number of diagnosed outliers yields a contamination rate of 0.52% (50 out of 9,604 observations). 
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/bearspaw_ts.png" width=100% height=100%>
+
+First, let's use reinforcement learning, namely Q-learning from OpenAI Gym to diagnose for time series anomaly detection. Using conservative values for the Hyperparameters to reduce the number of diagnosed outliers yields a contamination rate of 0.52% (50 out of 9,604 observations). 
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/anomaly_ts_q_learning.png" width=100% height=100%>
 
