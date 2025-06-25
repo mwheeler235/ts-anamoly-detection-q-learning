@@ -6,3 +6,4 @@ csv/*
 **/.DS_Store
 **/._.DS_Store
 .env
+jupyter_notebook_config.py
