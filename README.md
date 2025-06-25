@@ -25,7 +25,7 @@ When comparing models, the outlier rates are very similar. Below is a chart show
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/ts_model_comp.png" width=100% height=100%>
 
-<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/model_anomaly_summary2.png" width=75% height=75%>
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/model_anomaly_summary2.png" width=90% height=90%>
 
 ## Observations
 * For the Isolation Forest's outliers, about half of them are picked up by the Rolling Mean model. Only one from the Isolation Forest overlapped with the Q-Learning outlier bucket.
