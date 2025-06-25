@@ -19,6 +19,10 @@ After training the Isolation Forest model using the outlier rate from the Q-Lear
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/if_anomaly.png" width=100% height=100%>
 
+## Rolling Mean for Outlier Detection
+
+Using the rolling mean is the most logical window we should consider for a more simplified model. For this analysis, we can define the window to be the previous 7 days. Then in order to yield an outlier ratio close to the results from the other two models, we can set the outlier threshold to be 1.75*(standard deviation). That is, if an observed value differs from the past 7-day mean by more than 1.75 times the standard deviation (of the rolling mean), then we flag the value as an outlier.
+
 ## Comparing All 3 Models
 
 When comparing models, the outlier rates are very similar. Below is a chart showing all three outlier models compared, then also a table showing the percent of outliers in each model bucket.
