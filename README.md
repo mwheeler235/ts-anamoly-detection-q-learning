@@ -50,6 +50,13 @@ Now it's clear that the Isolation Forest is capturing the most reasonable outlie
 * For the Isolation Forest's outliers, about half of them are picked up by the Rolling Mean model. Only one from the Isolation Forest overlapped with the Q-Learning outlier bucket.
 * The majority of the Q-Learning outliers were not flagged by the other two models, indicating that further tuning of the RL model is required to approach more congruence between models.
 
+## Time Series Modeling
+
+As a bonus, let's see how predictable daily kWh production is for this solar plant. For the training data, we will choose all of the data from 2015 through 2020, then we can predict the period for 2021 through March of 2023. We also will perform a hyperparameter tuning job for changepoint_prior_scale and seasonality_prior_scale values to optimize the model performance.  Below are the prediction results.
+
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/prophet_preds.png" width=100% height=100%>
+
+Clearly, the stochastic nature of daily output is difficult for a model to pick up, however, the trend looks very appropriate. The Mean Absoluate Error (MAE) for the test set is 475 kWh, which is not ideal. If we were to model at the monthly level, MAE and MAPE would be much lower.
 
 ## Conclusion
 
