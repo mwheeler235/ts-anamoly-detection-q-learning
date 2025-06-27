@@ -4,18 +4,26 @@ Our data source is solar panel production from major solar facilities in Canada.
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/whitehorn_ts.png" width=100% height=100%>
 
 ## Reinforcement Learning for Outlier Detection
-First, let's use reinforcement learning, namely Q-learning from OpenAI Gym, to diagnose time series anomalies. Using conservative values for the Hyperparameters to reduce the number of diagnosed outliers yields a contamination (or, outlier) rate of 2%. 
+First, let's use reinforcement learning, namely Q-learning from OpenAI Gym, to diagnose time series anomalies. 
+
+Q-learning can be used for anomaly detection by training an agent to learn a policy that maximizes rewards for normal behavior and minimizes rewards for anomalous behavior. The agent learns to distinguish between normal and abnormal patterns through trial and error, receiving rewards or penalties based on its actions. Anomalies are identified as deviations from the learned normal behavior.
+
+We can use conservative values for the Hyperparameters to reduce the number of diagnosed outliers, the the model yields a contamination (or, outlier) rate near 2%. 
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/ql_anomaly.png" width=100% height=100%>
 
 ## Isolation Forest for Outlier Detection
-Next, we can compare the Q-Learning results to the results from an Isolation Forest model. We can define several features for this model considering a window of 14 days. These metrics are shown below:
+Next, we can compare the Q-Learning results to the results from an Isolation Forest model. 
+
+Isolation forests are an unsupervised ML approach that we can use for anomaly detection. Using a random subset of the data, the model builds multiple decision trees. Subsampling is used to select a random subset of the data to build each tree, allowing for efficiency and increased regularization. After selecting a random feature from the data, the model chooses a random split point creating two branches. This process is recursively repeated for each new branch until a maximum depth is reached. After the trees are generated, for each tree, the algorithm calculates the path length of each data point to the root of the tree. The average of all trees for each point defines its "anomaly score." Finally, observations with a lower anomaly score are more “normal” and are less likely to be considered anomalies.
+
+Primarily based on the kWh feature, a feature set was generated for this model. For the rolling mean, the window chosen is 14 days in order to capture a two-week "expectation." These metrics are shown below:
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/isolation_forest_features1.png" width=25% height=25%>
 
-Next, we can estimate the contamination by using 1.75 standard deviations from the mean for each feature, then averaging the number of outliers over total oberservations across all metrics. The estimated contamination rate is very similar at 2.6%. But for the Isolation Forest, we will use the exact outlier rate from the Q-Learning result.
+Next, we can estimate the contamination by using 1.75 standard deviations from the mean for each feature, then averaging the number of outliers over total oberservations across all metrics. The estimated contamination rate is very similar at 2.6%. But for the Isolation Forest model, we will use the exact outlier rate  derived from the Q-Learning result (2.17%).
 
-After training the Isolation Forest model using the outlier rate from the Q-Learning model (2.17%), the result is shown below:
+After training the Isolation Forest model, the results are shown below:
 
 <img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/if_anomaly.png" width=100% height=100%>
 
