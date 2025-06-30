@@ -54,13 +54,16 @@ Now it's clear that the Isolation Forest is capturing the most reasonable outlie
 
 As a bonus, let's see how predictable daily kWh production is for this solar plant. For the training data, we will choose all of the data from 2015 through 2020, then we can predict the period for 2021 through March of 2023. We also will perform a hyperparameter tuning job for changepoint_prior_scale and seasonality_prior_scale values to optimize the model performance.  Below are the prediction results.
 
-<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/prophet_preds.png" width=100% height=100%>
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/prophet_preds1.png" width=100% height=100%>
 
-Clearly, the stochastic nature of daily output is difficult for a model to pick up, however, the trend looks very appropriate. The Mean Absoluate Error (MAE) for the test set is 475 kWh, which is not ideal. If we were to model at the monthly level, MAE and MAPE would be much lower.
+Clearly, the stochastic nature of daily output is difficult for a model to pick up, however, the trend looks very appropriate. The Mean Absoluate Error (MAE) for the test set around 470 kWh and the Weighted Mean Absolute Percentage Error is 41.87%. If we were to model at the monthly level, the MAE and MAPE values would be much lower.
 
-## Conclusion
+<img src="https://github.com/mwheeler235/ts-anamoly-detection-q-learning/blob/main/img/prophet_eval_metrics.png" width=50% height=50%>
 
-This is an interesting comparison on daily solar production data. Based on these results, the Isolation Forest is the true winner as it yields:
+
+## Anomaly Detection Conclusion
+
+This is an interesting model comparison using daily solar production data. Based on these results, the Isolation Forest is the true winner as it yields:
 * Interpretability, given the user can choose the feature set
 * Flexibiliity using hyperparameters to "control" the outlier rate and how "deep" the trees go
 * Ability to define training and test sets and thus, perform cross-validation to reduce bias
